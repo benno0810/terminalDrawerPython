@@ -171,15 +171,15 @@ python draw.py
   - returns an error message:  
   `"Invalid coordinates. Coordinates exceed canvas size."`
 
-- Any command that specifies negative coordinates  
+- Any command that specifies negative coordinates 
   - returns an error message:  
   `"Invalid coordinates. Coordinates must be non-negative."`
 
 - Zero-length lines or rectangles (start == end)  
   - return an error message:  
-  `"Invalid line. Start and end points cannot be the same."`  
+  `"Invalid line. ..."`  
   or  
-  `"Invalid rectangle. Width and height must be > 0."`
+  `"Invalid rectangle. ..."`
 
 - Bucket-fill (`B x1 y1 c`):
 
