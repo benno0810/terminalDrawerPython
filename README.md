@@ -5,36 +5,7 @@ draw on terminal with python
 # Requirement
 
 ```bash
-You are to implement a terminal-based drawing program that can support a range of commands:
-
-
-C x y - Initialise a canvas of width x and height y. Output the canvas bordered on top and bottom with hyphens ('-'), and on left and right with pipe ('|'). See example output below.
-
-L x1 y1 x2 y2 c - Draws a line between two points (x1,y1) and (x2,y2). The line will be drawn with an the given c character.
-
-R x1 y1 x2 y2 c - Draws a rectangle bounded by points (x1,y1) and (x2,y2). The rectangle will be drawn with the given c character.
-
-B x1 y1 c - Bucket fills all points connected to the point (x1,y1) with the given c color. If filling inside a rectangle, the inside of the rectangle will be marked with the new color.
-
-Q - quits the program
-
-Output
-
-Print the canvas to the screen, bordered on all 4 sides with - and | characters. e.g. a 3x3 canvas (created with the command C 3 3): 
-
------
-|   |
-|   |
-|   |
------
-
-Draw a line: L 2 2 3 2 .
-
------
-|   |
-| ..|
-|   |
------
+You are to implement a terminal-based drawing program
 ```
 
 # Example command sequence and result
@@ -181,7 +152,7 @@ python draw.py
 
 # Miscellaneous
 ## Hypotheses / Assumptions
-- consult scenarios (.feature files) under folder features if you find any confliction and raise an issue
+- consult scenarios (.feature files) under folder features if you find any confliction and then raise an issue about this confliction
 
 - (0,0) is at the left top of the canvas,  larger x means more close to right, larger y means more close to bottom, all coordinates can not be negative
 
@@ -193,22 +164,22 @@ python draw.py
 
 - virtual z axis for rectangles and lines objects (I learnt it from computer graphic, it's called z-buffer)
   - only colors of largest z (min depth, cloest to the "camera") will be rendered on canvas
-  - we maintain coordinate z in-house, i.e when a command is pass in, an increasing z coordinate is generated for any object that is being created
-  - theoretically two polygon will never be overlapping with increasing z coordinates, but it can be confused when we can only looping through z axis
+  - we maintain coordinate z in-house, i.e when a command pass in, an increasing z coordinate is generated for any object that is being created
+  - theoretically two polygons will never be overlapping with each other given increasing z coordinates, but it can be confused to look at what's being printing out since we can only look through z axis
 
 - Any command that specifies coordinates outside the current canvas dimensions  
   - returns an error message:  
   `"Invalid coordinates. Coordinates exceed canvas size."`
 
-- Any command that specifies negative coordinates  
+- Any command that specifies negative coordinates 
   - returns an error message:  
   `"Invalid coordinates. Coordinates must be non-negative."`
 
 - Zero-length lines or rectangles (start == end)  
   - return an error message:  
-  `"Invalid line. Start and end points cannot be the same."`  
+  `"Invalid line. ..."`  
   or  
-  `"Invalid rectangle. Width and height must be > 0."`
+  `"Invalid rectangle. ..."`
 
 - Bucket-fill (`B x1 y1 c`):
 
