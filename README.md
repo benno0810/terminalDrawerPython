@@ -152,7 +152,7 @@ python draw.py
 
 # Miscellaneous
 ## Hypotheses / Assumptions
-- consult scenarios (.feature files) under folder features if you find any confliction and raise an issue
+- consult scenarios (.feature files) under folder features if you find any confliction and then raise an issue about this confliction
 
 - (0,0) is at the left top of the canvas,  larger x means more close to right, larger y means more close to bottom, all coordinates can not be negative
 
@@ -164,8 +164,8 @@ python draw.py
 
 - virtual z axis for rectangles and lines objects (I learnt it from computer graphic, it's called z-buffer)
   - only colors of largest z (min depth, cloest to the "camera") will be rendered on canvas
-  - we maintain coordinate z in-house, i.e when a command is pass in, an increasing z coordinate is generated for any object that is being created
-  - theoretically two polygon will never be overlapping with increasing z coordinates, but it can be confused when we can only looping through z axis
+  - we maintain coordinate z in-house, i.e when a command pass in, an increasing z coordinate is generated for any object that is being created
+  - theoretically two polygons will never be overlapping with each other given increasing z coordinates, but it can be confused to look at what's being printing out since we can only look through z axis
 
 - Any command that specifies coordinates outside the current canvas dimensions  
   - returns an error message:  
