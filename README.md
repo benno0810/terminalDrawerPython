@@ -5,36 +5,7 @@ draw on terminal with python
 # Requirement
 
 ```bash
-You are to implement a terminal-based drawing program that can support a range of commands:
-
-
-C x y - Initialise a canvas of width x and height y. Output the canvas bordered on top and bottom with hyphens ('-'), and on left and right with pipe ('|'). See example output below.
-
-L x1 y1 x2 y2 c - Draws a line between two points (x1,y1) and (x2,y2). The line will be drawn with an the given c character.
-
-R x1 y1 x2 y2 c - Draws a rectangle bounded by points (x1,y1) and (x2,y2). The rectangle will be drawn with the given c character.
-
-B x1 y1 c - Bucket fills all points connected to the point (x1,y1) with the given c color. If filling inside a rectangle, the inside of the rectangle will be marked with the new color.
-
-Q - quits the program
-
-Output
-
-Print the canvas to the screen, bordered on all 4 sides with - and | characters. e.g. a 3x3 canvas (created with the command C 3 3): 
-
------
-|   |
-|   |
-|   |
------
-
-Draw a line: L 2 2 3 2 .
-
------
-|   |
-| ..|
-|   |
------
+You are to implement a terminal-based drawing program
 ```
 
 # Example command sequence and result
