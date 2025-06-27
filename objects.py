@@ -129,7 +129,7 @@ class canvasBoard:
             
     def fillColor(self, params):
         if len(params) != 4:
-            raise ValueError("Invalid command format for canvas background color.")
+            raise ValueError("Invalid command format for bucket filling.")
         x, y = int(params[1]), int(params[2])
         color = params[3]
         if not self._checkColor(color):

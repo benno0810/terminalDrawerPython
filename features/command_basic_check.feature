@@ -8,8 +8,8 @@
     Examples:
         | command            | error                                                        |
         | K -1 -1 2 2 x      | Invalid command type must be in [C,L,R,B,Q].        |
-        | L 2 2 2 2 x 2       |invalid literal for int() with base 10: 'x'        |
-        | L 2 2 5 x x        | Invalid command format for line creation. example: L x1 y1 x2 y2 color         |
+        | L 2 2 2 2 x 2       | Invalid command format for line creation. example: L x1 y1 x2 y2 color         |
+        | L 2 2 5 x x        | invalid literal for int() with base 10: 'x'        |
         | R 0 0 6 6 x 2       | Invalid command format for rectangle creation. example: R x1 y1 x2 y2 color            |
         | C 0 0 6         | Canvas command must be: C width height            |
         

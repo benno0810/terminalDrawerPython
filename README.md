@@ -2,11 +2,11 @@
 
 draw on terminal with python
 
-···
+# Requirement
 
-Requirement
-
+```bash
 You are to implement a terminal-based drawing program that can support a range of commands:
+
 
 C x y - Initialise a canvas of width x and height y. Output the canvas bordered on top and bottom with hyphens ('-'), and on left and right with pipe ('|'). See example output below.
 
@@ -20,44 +20,166 @@ Q - quits the program
 
 Output
 
-Print the canvas to the screen, bordered on all 4 sides with - and | characters. e.g. a 3x3 canvas (created with the command C 3 3):
-···
+Print the canvas to the screen, bordered on all 4 sides with - and | characters. e.g. a 3x3 canvas (created with the command C 3 3): 
 
----
-
-| |
-| |
-| |
-
----
+-----
+|   |
+|   |
+|   |
+-----
 
 Draw a line: L 2 2 3 2 .
 
----
-
-| |
+-----
+|   |
 | ..|
-| |
+|   |
+-----
+```
 
----
-
-Example command sequence
-
+# Example command sequence and result
+```text
 C 5 10
-L 0 0 0 5 x
-R 0 0 5 5 y
-R 1 1 6 6 z
-B 3 3 z .
-B 0 1 y ,
-Q
+-------
+|     |
+|     |
+|     |
+|     |
+|     |
+|     |
+|     |
+|     |
+|     |
+|     |
+-------
 
-Acceptance criteria
+L 0 0 0 5 x
+-------
+|x    |
+|x    |
+|x    |
+|x    |
+|x    |
+|x    |
+|     |
+|     |
+|     |
+|     |
+-------
+
+R 0 0 3 3 y
+-------
+|yyyy |
+|y  y |
+|y  y |
+|yyyy |
+|x    |
+|x    |
+|     |
+|     |
+|     |
+|     |
+-------
+
+R 2 2 4 4 z
+-------
+|yyyy |
+|y  y |
+|y zzz|
+|yyzyz|
+|x zzz|
+|x    |
+|     |
+|     |
+|     |
+|     |
+-------
+
+B 3 3 z 
+-------
+|yyyy |
+|y  y |
+|y zzz|
+|yyzzz|
+|x zzz|
+|x    |
+|     |
+|     |
+|     |
+|     |
+-------
+
+B 0 1 y 
+-------
+|yyyy |
+|y  y |
+|y zzz|
+|yyzzz|
+|y zzz|
+|y    |
+|     |
+|     |
+|     |
+|     |
+------- （nothing happened）
+
+L 0 6 4 9 d 
+-------
+|yyyy |
+|y  y |
+|y zzz|
+|yyzzz|
+|y zzz|
+|y    |
+|d    |
+| dd  |
+|   d |
+|    d|
+------- (diagonal line, bresenham line;s algo from googling )
+
+B 0 6 c
+-------
+|yyyy |
+|y  y |
+|y zzz|
+|yyzzz|
+|y zzz|
+|y    |
+|c    |
+| cc  |
+|   c |
+|    c|
+-------
+
+Q
+Quitting. (then application quit)
+```
+
+## Acceptance criteria
 
 - The program will prompt for input, and render the response to the screen, before prompting for more input, up to the point it is terminated with “Q”.
 - A readme explaining how to run the code
 - Adequate test coverage. We recommend a test-driven approach
 - Where requirements are unclear, make a choice and document if necessary
 
+
+# How to test
+
+```bash
+pip install behave # (or pip install -r requirements.txt)
+behave # if you want to test all feature file
+behave features/command_basic_check.feature # if you want to test a single feature file
+```
+
+# How to run
+```bash
+python draw.py
+```
+
+
+
+
+# Miscellaneous
 ## Hypotheses / Assumptions
 - consult scenarios (.feature files) under folder features if you find any confliction and raise an issue
 
@@ -65,7 +187,9 @@ Acceptance criteria
 
 - you must create a canvas board before drawing anything
 
-- all coordinates are not negative integers for the sake of simplixity
+- all coordinates cannot exceed the canvas, otherwise an error message will throw but application continue to run
+
+- for invalid command input, and error message will throw out but application continue to run
 
 - virtual z axis for rectangles and lines objects (I learnt it from computer graphic, it's called z-buffer)
   - only colors of largest z (min depth, cloest to the "camera") will be rendered on canvas
@@ -97,5 +221,6 @@ Acceptance criteria
 - Rectangle drawing (`R x1 y1 x2 y2 c`) should always draw borders only; the inside remains blank until a bucket-fill command is applied.
 
 ## Why I use BDD(behavioral driven development) instead of TDD
-- Purpose of this application is clear but interface is unclear to me
-- I can use feature file to elaborate numerous hypothesis without manually updating readme, if the feature description is failed, the application did not finishes what it suppose to do
+- Purpose of this application (aka behavior of this application ) is clear but interface and api definition is not known up front
+- Feature file has higher readability and easy to understand when elaborating numerous hypothesis and can use as a check when evolving features development, failing feature test means some missing behavior of the application that needs to be developed
+
