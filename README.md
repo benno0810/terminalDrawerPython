@@ -2,6 +2,23 @@
 
 draw on terminal with python
 
+# Explanation of over-complicaste the requirements
+Sorry for the over-complexity of this project implementation.  
+
+During my master study in NYU, there is a course called "computer graphic" which trained us to implement drawing objects on the computer screen from the scratch in C++. (course materials is here https://github.com/danielepanozzo/cg/tree/master).//
+
+In the first glance of the project, I realized that a simplified rasterization pipeline is a perfect solution, which my assignment 6's submission of this course has already implemented in the year of 2021.
+I further took some simplication compared the original implementation, then convert it into python code. 
+
+It's just that there's already so much edge cases and considerations in my mind when I took over 2 weeks on this assignment 6 of Computer graphic course. 
+
+I sincerely apology and trully regret on over-thinking on the requirements that leads to these extra complexities. 
+
+I've uploaded that assignment submission to the repo under folder /terminalDrawerPython/Assign_6_jw7019 , there is a MKV video report which illustrate functionalities and edge casese that I have considered for this task back to 2021.
+
+As for using BDD, I learnt the concept since 2022 and want to practice it ever since, the project that I first leant and practice the concept is located here https://github.com/DevOps-Sum22-Inventory-Squad/inventory/tree/master/features back to 2022
+
+
 # Requirement
 
 ```bash
